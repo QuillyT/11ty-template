@@ -1,1 +1,0 @@
-document.getElementById("index").addEventListener("click",(function(){console.log("wtf");alert("Clicked INDEX!!"+b)}));

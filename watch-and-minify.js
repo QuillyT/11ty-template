@@ -5,7 +5,7 @@ const path = require("path");
 
 // Directories
 const srcDir = path.join(__dirname, "src/js");
-const destDir = path.join(__dirname, "staged");
+const destDir = path.join(__dirname, "staged/js");
 
 // Ensure the destination directory exists
 if (!fs.existsSync(destDir)) {
@@ -14,9 +14,7 @@ if (!fs.existsSync(destDir)) {
 
 // Minify options
 options = {
-  compress: {
-    drop_console: true,
-  },
+  compress: true,
   mangle: true,
   output: {
     comments: false,
@@ -32,7 +30,8 @@ watcher
 
 function minifyFile(filePath) {
   const fileName = path.basename(filePath);
-  const destPath = path.join(destDir, fileName);
+  const minifiedFileName = fileName.replace(/\.js$/, ".min.js");
+  const destPath = path.join(destDir, minifiedFileName);
 
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {

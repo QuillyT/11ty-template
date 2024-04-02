@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npx eleventy --serve",
     "build": "npx eleventy",
-    "style": "npx tailwindcss -i src/css/input.css -o staged/css/styles.min.css --minify --watch"
+    "styles": "npx tailwindcss -i src/css/input.css -o staged/css/styles.min.css --minify --watch",
+    "minjs": "node minify.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "chokidar": "^3.6.0",
+    "html-minifier": "^4.0.0",
     "terser": "^5.30.1"
   }
 }

@@ -1,6 +1,7 @@
 document.getElementById("index").addEventListener("click", function () {
-  console.log("wtf");
-  // here is a funny comment
   let variable = "Clicked INDEX!!";
-  alert(variable + b);
+  alert(variable);
+  // in watch-and-minify, we're not using the compression option drop_console
+  // because we'll probably be using the console for debugging all the time
+  console.log("not compressing");
 });
