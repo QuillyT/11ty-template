@@ -2,12 +2,12 @@
 
 This is a base 11ty template that uses the following:
 
-|                  |                                             |
-| ---------------- | ------------------------------------------- |
-| **Templates**    | md, nunjucks, and html                      |
-| **Styles**       | Tailwindcss, postcss, autoprefixer, cssnano |
-| **Linting**      | prettier                                    |
-| **Minification** | terser                                      |
+|                  |                                    |
+| ---------------- | ---------------------------------- |
+| **Templates**    | md, nunjucks, and html             |
+| **Styles**       | Tailwindcss, postcss, autoprefixer |
+| **Linting**      | prettier                           |
+| **Minification** | cssnano, terser                    |
 
 # Developer Experience
 
@@ -19,14 +19,18 @@ The way I like to work is to have a tmux session up with 3 windows:
 
 Things I want while I'm developing, here are a few things that I want to have happen when I save changes:
 
-1. the server that automatically hot-reloads
-2. prettier automatically formats my files on save (IDE setup)
-3. tailwindcss to be automatically rebuilt when styles are changed
-4. output styles to automatically be minified
-5. output javascript to be automatically minified
-6. output html to be automatically minified
+1. prettier automatically formats my files on save (IDE setup)
+2. tailwindcss to be automatically rebuilt and minified when styles are changed
+3. output javascript to be automatically minified/mangled
+4. output html to be automatically minified
+5. after all that the server automatically hot-reloads
 
-# Styles
+this lets me make changes, save the file, and immediately alt-tab and refresh my browser instead of having to run any intermediary build steps.
 
-Out of the box, tailwind's build command comes with a `--watch` flag that looks for and related file changes.
-There are also instructions for [minification](https://tailwindcss.com/docs/optimizing-for-production) so we followed that and installed `cssnano`
+# `staged/`
+
+This folder holds all my passthrough files. This is where the production ready (built/processed and minified) files go.
+
+Using tailwind means having an extra build step around the styles. The resulting style files are going to be different from my `input.css`. My preference is to keep those files in separate places.
+
+Similarly, I will want to use minifed/mangled my javascript files.

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx eleventy --serve",
     "build": "npx eleventy",
-    "style": "npx tailwindcss -i src/css/input.css -o staged/css/styles.css --minify --watch"
+    "style": "npx tailwindcss -i src/css/input.css -o staged/css/styles.min.css --minify --watch"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,9 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "terser": "^5.30.1"
   }
 }
